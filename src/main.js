@@ -15,22 +15,20 @@ function getStatusIcon(character) {
 }
 
 function translateStatus(character) {
-    const current_status = character.status.toLowerCase()
 
-    const statusTranslation = {
-        'alive': "Viv",
-        'dead': "Mort",
-        'unknown': "Desconhecid"
-    }
+    if (character.status === 'Alive' && character.gender === "Male") { return "Vivo"; }
+    else if (character.status === 'Alive' && character.gender === "Female") { return "Viva"; }
 
-    let pronoun = ''
-    if (character.gender === 'Male') {
-        pronoun = 'o'
-    } else {
-        pronoun = 'a'
-    }
+    if (character.status === 'Dead' && character.gender === "Male") { return "Morto"; }
+    else if (character.status === 'Dead' && character.gender === "Female") { return "Morta"; }
 
-    return statusTranslation[current_status] + pronoun
+    if (character.status === 'Alive' && character.gender === "Unknown") { return "Vivo"; }
+    else if (character.status === 'Dead' && character.gender === "Unknown") { return "Morto"; }
+
+    if (character.status === 'Alive' && character.gender === "Genderless") { return "Vivo"; }
+    else if (character.status === 'Dead' && character.gender === "Genderless") { return "Morto"; }
+
+    else { return "Desconhecido"; }
 }
 
 function translateSpecies(character) {
@@ -48,13 +46,43 @@ function translateSpecies(character) {
         'robot': "Robô",
         'parasite': "Parasita",
         'cronenberg': "Cronenberg",
-        'disease': "Disease"
+        'disease': "Doença"
     }
 
     return speciesTranslation[current_species]
 }
 
-document.querySelector("#main").innerHTML = data
+function translateGender(character) {
+    const current_gender = character.gender.toLowerCase()
+
+    const genderTranslation = {
+        'male': "Masculino",
+        'female': "Feminino",
+        'unknown': "Desconhecido",
+        'genderless': "Indefinido"
+    }
+
+    return genderTranslation[current_gender]
+}
+
+function translateOrigin(character) {
+    const origin = character.origin.name
+    if (origin.includes('Earth')) return origin.replace('Earth', 'Terra')
+    if (origin === "unknown") return "Desconhecida"
+
+    return origin
+}
+
+function translateLocation(character) {
+
+    const location = character.location.name
+    if (location.includes('Earth')) return location.replace('Earth', 'Terra')
+    if (location === "unknown") return "Local desconhecido"
+
+    return location
+}
+
+document.querySelector("#main").innerHTML += data
     .results
     .map(character => {
         return `
@@ -63,12 +91,56 @@ document.querySelector("#main").innerHTML = data
       class="character-image" />
     <div class="character-name">${character.name}</div>
     <div class="character-description">
-      <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${character.gender}</div>
-      <div>Origem: ${character.origin.name}</div>
-      <div>Vive em: ${character.location.name}</div>
+      <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${translateGender(character)}</div>
+      <div>Origem: ${translateOrigin(character)}</div>
+      <div>Vive em: ${translateLocation(character)}</div>
     </div>
   </div>
   </div>
   `
     }).join('')
 
+const allStatus = new Set()
+
+data.results.forEach(character => allStatus.add(character.status))
+
+const statusOptions = Array.from(allStatus)
+
+document.querySelector("#filter-by-status").innerHTML =
+    statusOptions.map(status => `<option>${status}</option>`).join('')
+
+const allSpecies = new Set()
+
+data.results.forEach(character => allSpecies.add(character.species))
+
+const speciesOptions = Array.from(allSpecies)
+
+document.querySelector("#filter-by-species").innerHTML = 
+    speciesOptions.map(species => `<option>${species}</option>`).join('')
+
+const allGender = new Set()
+
+data.results.forEach(character => allGender.add(character.gender))
+
+const genderOptions = Array.from(allGender)
+
+document.querySelector("#filter-by-gender").innerHTML = 
+    genderOptions.map(gender => `<option>${gender}</option>`).join('')
+
+const allOrigin = new Set()
+
+data.results.forEach(character => allOrigin.add(character.origin.name))
+
+const originOptions = Array.from(allOrigin)
+
+document.querySelector("#filter-by-origin").innerHTML =
+    originOptions.map(origin => `<option>${origin}</option>`).join('')
+
+const allLocation = new Set()
+
+data.results.forEach(character => allLocation.add(character.location.name))
+
+const locationOptions = Array.from(allLocation)
+
+document.querySelector("#filter-by-location").innerHTML =
+    locationOptions.map(location => `<option>${location}</option>`).join('')
