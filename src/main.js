@@ -82,65 +82,26 @@ function translateLocation(character) {
     return location
 }
 
-document.querySelector("#main").innerHTML += data
-    .results
-    .map(character => {
-        return `
-    <div class="card">
-    <img src="${character.image}"
-      class="character-image" />
-    <div class="character-name">${character.name}</div>
-    <div class="character-description">
-      <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${translateGender(character)}</div>
-      <div>Origem: ${translateOrigin(character)}</div>
-      <div>Vive em: ${translateLocation(character)}</div>
-    </div>
-  </div>
-  </div>
-  `
-    }).join('')
+export function renderCards(arrayWithCharacterData) {
+    document.querySelector("#cards").innerHTML = ""
+    document.querySelector("#cards").innerHTML += arrayWithCharacterData
+        .map(character => {
+            return `
+            <div class="card">
+            <img src="${character.image}"
+            class="character-image" />
+            <div class="character-name">${character.name}</div>
+            <div class="character-description">
+            <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${translateGender(character)}</div>
+            <div>Origem: ${translateOrigin(character)}</div>
+            <div>Vive em: ${translateLocation(character)}</div>
+            </div>
+        </div>
+        </div>
+        `
+        }).join('')
+}
 
-const allStatus = new Set()
+renderCards(data.results)
 
-data.results.forEach(character => allStatus.add(character.status))
 
-const statusOptions = Array.from(allStatus)
-
-document.querySelector("#filter-by-status").innerHTML =
-    statusOptions.map(status => `<option>${status}</option>`).join('')
-
-const allSpecies = new Set()
-
-data.results.forEach(character => allSpecies.add(character.species))
-
-const speciesOptions = Array.from(allSpecies)
-
-document.querySelector("#filter-by-species").innerHTML = 
-    speciesOptions.map(species => `<option>${species}</option>`).join('')
-
-const allGender = new Set()
-
-data.results.forEach(character => allGender.add(character.gender))
-
-const genderOptions = Array.from(allGender)
-
-document.querySelector("#filter-by-gender").innerHTML = 
-    genderOptions.map(gender => `<option>${gender}</option>`).join('')
-
-const allOrigin = new Set()
-
-data.results.forEach(character => allOrigin.add(character.origin.name))
-
-const originOptions = Array.from(allOrigin)
-
-document.querySelector("#filter-by-origin").innerHTML =
-    originOptions.map(origin => `<option>${origin}</option>`).join('')
-
-const allLocation = new Set()
-
-data.results.forEach(character => allLocation.add(character.location.name))
-
-const locationOptions = Array.from(allLocation)
-
-document.querySelector("#filter-by-location").innerHTML =
-    locationOptions.map(location => `<option>${location}</option>`).join('')
