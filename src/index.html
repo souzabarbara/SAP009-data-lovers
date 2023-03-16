@@ -33,6 +33,44 @@
     </div>
   </header>
   <main id="main">
+    <nav class="menu-container">
+      <div class="menu">
+        <a href="#" class="menu-item">sobre a série</a>
+        <ul>
+          <li class="menu-item">filtrar por:</li>
+          <li class="menu-sub-item">
+            <select id="filter-by-status"></select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-species"></select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-gender"></select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-origin"></select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-location"></select>
+          </li>
+        </ul>
+        <ul>
+          <li class="menu-item">ordenar por:</li>
+          <li class="menu-sub-item">
+            <select id="order-by-name">
+              <option value="a-z">A-Z</option>
+              <option value="z-a">Z-A</option>
+            </select>
+          </li>
+        </ul>
+        <a href="#" class="menu-item">curiosidades</a>
+        <a href="#" class="menu-item">lista de episódios</a>
+      </div>
+      <a href="#" class="menu-icon">
+        <i class="fas fa-bars fa-lg"></i>
+      </a>
+    </nav>
+    <div id="cards"></div>
   </main>
   <div id="root"></div>
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -55,5 +93,6 @@
     </ul>
    </div>
   </footer>
- </body>
+  <script src="nav.js" type="module"></script>
+</body>
 </html>
