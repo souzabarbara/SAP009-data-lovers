@@ -1,17 +1,17 @@
 import data from './data/rickandmorty/rickandmorty.js';
 
 function getStatusIcon(character) {
-    let statusIcon = "●"
+  let statusIcon = "●"
 
-    if (character.status === "Alive") {
-        statusIcon = `<span style='color: green'>${statusIcon}</span>` // atributo style  adiciona css a qualquer elemento 
-    } else if (character.status === "Dead") {
-        statusIcon = `<span style='color: red'>${statusIcon}</span>`
-    } else {
-        statusIcon = `<span style='color: gray'>${statusIcon}</span>`
-    }
+  if (character.status === "Alive") {
+    statusIcon = `<span style='color: green'>${statusIcon}</span>` // atributo style  adiciona css a qualquer elemento 
+  } else if (character.status === "Dead") {
+    statusIcon = `<span style='color: red'>${statusIcon}</span>`
+  } else {
+    statusIcon = `<span style='color: gray'>${statusIcon}</span>`
+  }
 
-    return statusIcon
+  return statusIcon
 }
 
 function translateStatus(character) {
@@ -32,7 +32,7 @@ function translateStatus(character) {
 }
 
 function translateSpecies(character) {
-    const current_species = character.species.toLowerCase()
+  const current_species = character.species.toLowerCase()
 
     const speciesTranslation = {
         'human': "Humana",
@@ -49,7 +49,7 @@ function translateSpecies(character) {
         'disease': "Doença"
     }
 
-    return speciesTranslation[current_species]
+  return speciesTranslation[current_species]
 }
 
 function translateGender(character) {
@@ -103,5 +103,3 @@ export function renderCards(arrayWithCharacterData) {
 }
 
 renderCards(data.results)
-
-
