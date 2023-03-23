@@ -28,7 +28,7 @@
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     color: #000;
 }
 
@@ -36,7 +36,7 @@
     padding-top: 40px;
 }
 
-.menu-container a:active {
+.menu-container a:hover {
     color: #00B5CC;
 }
 
@@ -47,15 +47,26 @@
 .menu-container li {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
 }
 
 .menu-sub-item {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 .menu-container li a {
     font-weight: normal;
-    font-size: 18px;
+    font-size: 20px;
 }
+
+select {
+    background-color: transparent;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    border: none;
+    appearance: none;
+    text-align: center;
+    text-transform: uppercase;
+  }
