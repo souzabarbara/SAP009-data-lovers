@@ -16,77 +16,77 @@ function getStatusIcon(character) {
 
 function translateStatus(character) {
 
-    if (character.status === 'Alive' && character.gender === "Male") { return "Vivo"; }
-    else if (character.status === 'Alive' && character.gender === "Female") { return "Viva"; }
+  if (character.status === 'Alive' && character.gender === "Male") { return "Vivo"; }
+  else if (character.status === 'Alive' && character.gender === "Female") { return "Viva"; }
 
-    if (character.status === 'Dead' && character.gender === "Male") { return "Morto"; }
-    else if (character.status === 'Dead' && character.gender === "Female") { return "Morta"; }
+  if (character.status === 'Dead' && character.gender === "Male") { return "Morto"; }
+  else if (character.status === 'Dead' && character.gender === "Female") { return "Morta"; }
 
-    if (character.status === 'Alive' && character.gender === "Unknown") { return "Vivo"; }
-    else if (character.status === 'Dead' && character.gender === "Unknown") { return "Morto"; }
+  if (character.status === 'Alive' && character.gender === "Unknown") { return "Vivo"; }
+  else if (character.status === 'Dead' && character.gender === "Unknown") { return "Morto"; }
 
-    if (character.status === 'Alive' && character.gender === "Genderless") { return "Vivo"; }
-    else if (character.status === 'Dead' && character.gender === "Genderless") { return "Morto"; }
+  if (character.status === 'Alive' && character.gender === "Genderless") { return "Vivo"; }
+  else if (character.status === 'Dead' && character.gender === "Genderless") { return "Morto"; }
 
-    else { return "Desconhecido"; }
+  else { return "Desconhecido"; }
 }
 
 function translateSpecies(character) {
   const current_species = character.species.toLowerCase()
 
-    const speciesTranslation = {
-        'human': "Humana",
-        'alien': "Alienígena",
-        'humanoid': "Humanoide",
-        'unknown': "Desconhecida",
-        'poopybutthole': "Poopybutthole",
-        'mytholog': "Mytholog",
-        'vampire': "Vampiro",
-        'animal': "Animal",
-        'robot': "Robô",
-        'parasite': "Parasita",
-        'cronenberg': "Cronenberg",
-        'disease': "Doença"
-    }
+  const speciesTranslation = {
+    'human': "Humana",
+    'alien': "Alienígena",
+    'humanoid': "Humanoide",
+    'unknown': "Desconhecida",
+    'poopybutthole': "Poopybutthole",
+    'mytholog': "Mytholog",
+    'vampire': "Vampiro",
+    'animal': "Animal",
+    'robot': "Robô",
+    'parasite': "Parasita",
+    'cronenberg': "Cronenberg",
+    'disease': "Doença"
+  }
 
   return speciesTranslation[current_species]
 }
 
 function translateGender(character) {
-    const current_gender = character.gender.toLowerCase()
+  const current_gender = character.gender.toLowerCase()
 
-    const genderTranslation = {
-        'male': "Masculino",
-        'female': "Feminino",
-        'unknown': "Desconhecido",
-        'genderless': "Indefinido"
-    }
+  const genderTranslation = {
+    'male': "Masculino",
+    'female': "Feminino",
+    'unknown': "Desconhecido",
+    'genderless': "Indefinido"
+  }
 
-    return genderTranslation[current_gender]
+  return genderTranslation[current_gender]
 }
 
 function translateOrigin(character) {
-    const origin = character.origin.name
-    if (origin.includes('Earth')) return origin.replace('Earth', 'Terra')
-    if (origin === "unknown") return "Desconhecida"
+  const origin = character.origin.name
+  if (origin.includes('Earth')) return origin.replace('Earth', 'Terra')
+  if (origin === "unknown") return "Desconhecida"
 
-    return origin
+  return origin
 }
 
 function translateLocation(character) {
 
-    const location = character.location.name
-    if (location.includes('Earth')) return location.replace('Earth', 'Terra')
-    if (location === "unknown") return "Local desconhecido"
+  const location = character.location.name
+  if (location.includes('Earth')) return location.replace('Earth', 'Terra')
+  if (location === "unknown") return "Local desconhecido"
 
-    return location
+  return location
 }
 
 export function renderCards(arrayWithCharacterData) {
-    document.querySelector("#cards").innerHTML = ""
-    document.querySelector("#cards").innerHTML += arrayWithCharacterData
-        .map(character => {
-            return `
+  document.querySelector("#cards").innerHTML = ""
+  document.querySelector("#cards").innerHTML += arrayWithCharacterData
+    .map(character => {
+      return `
             <div class="card">
             <img src="${character.image}"
             class="character-image" />
@@ -95,11 +95,47 @@ export function renderCards(arrayWithCharacterData) {
             <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${translateGender(character)}</div>
             <div>Origem: ${translateOrigin(character)}</div>
             <div>Vive em: ${translateLocation(character)}</div>
+            <div class="show-episodes" data-character-id="${character.id}"> Episódios em que aparece</div>
             </div>
         </div>
         </div>
         `
-        }).join('')
+    }).join('')
 }
 
 renderCards(data.results)
+
+const modal = document.querySelector("#modal");
+const showEpisodesDivs = document.querySelectorAll(".show-episodes");
+
+showEpisodesDivs.forEach(el => {
+  el.addEventListener('click', (event) => {
+    modal.style.display = "block";
+
+    const cardCharacterId = event.target.getAttribute("data-character-id")
+
+    const modalText = data
+      .results
+      .find(character => character.id == cardCharacterId)
+      .episode
+      .join('<br>')
+
+    modal.innerHTML =
+      `<div class="modal-content">
+        <span id="modal-close">&times;</span>
+        <p>${modalText}</p>
+      </div>`
+
+    const closeButton = document.querySelector("#modal-close");
+
+    closeButton.addEventListener('click', () => {
+      modal.style.display = "none";
+    })
+  })
+})
+
+window.onclick = (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}

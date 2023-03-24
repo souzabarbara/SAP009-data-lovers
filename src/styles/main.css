@@ -39,6 +39,7 @@ body::-webkit-scrollbar {
     background: #fff;
     padding: 10px;
     padding-bottom: 40px;
+    position: relative;
 }
 
 .character-image {
@@ -57,4 +58,47 @@ body::-webkit-scrollbar {
 .character-description {
     margin-top: 15px;
     word-break: break-word;
+}
+
+.show-episodes {
+  position:absolute;
+  bottom: 10px;
+  color: #00B5CC;
+  cursor: pointer;
+}
+/* Estilo do modal */
+.modal {
+  display: none; /* Esconder o modal por padrão */
+  position: fixed; /* Posição fixa */
+  z-index: 1; /* Z-index alto para aparecer sobre outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  overflow: hidden; /* Habilitar o scroll se o conteúdo do modal for muito grande */
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 8% auto; /* Centralizar verticalmente */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Largura do conteúdo */
+}
+
+/* Botão "Fechar" */
+#modal-close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
