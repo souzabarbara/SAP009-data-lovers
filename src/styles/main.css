@@ -6,23 +6,6 @@
 
 }
 
-body::-webkit-scrollbar {
-    background-color: #f5f5f5;
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background-color: #B2DF28;
-  }
-
-  body::-webkit-scrollbar-thumb {
-    height: 100px;
-    border-radius: 50px;
-  }
-
-  body::-webkit-scrollbar {
-    width: 15px;
-  }
-
 #cards {
     background-color: #44281D;
     display: grid;

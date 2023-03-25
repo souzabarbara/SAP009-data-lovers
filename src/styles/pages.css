@@ -47,9 +47,10 @@ body {
     padding-left: 55px;
     list-style: none;
     overflow: auto;
+    height: 450px;
 }
 
-.container-topics li::before {
+.container-topics > li::before {
     content: "\2022";
     color: #B2DF28;
     font-weight: bold;
@@ -57,4 +58,8 @@ body {
     width: 1em;
     margin-left: -1em;
     font-size: 25px;
+  }
+
+  .episode-list {
+      padding: 10px;
   }
