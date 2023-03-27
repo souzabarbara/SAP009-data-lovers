@@ -1,4 +1,5 @@
 import data from './data/rickandmorty/rickandmorty.js';
+import { originOptions as uniqueOrigins } from './nav.js'
 
 function getStatusIcon(character) {
   let statusIcon = "●"
@@ -139,3 +140,22 @@ window.onclick = (event) => {
     modal.style.display = "none";
   }
 }
+
+const charactersAlive = data.results.filter(character => character.status === "Alive").length
+const totalCharacters = data.results[data.results.length - 1].id
+const charactersWithOriginUnknown = data.results.filter(character => character.origin.name === "unknown").length
+
+function calculatePercentage(value, total) {
+  return Math.round((value / total) * 100)
+}
+
+document.querySelector("#extras").innerHTML = `
+  <div>
+    Número total de personagens: ${data.results[data.results.length - 1].id} (${calculatePercentage(charactersAlive, totalCharacters)}% dos personagens estão vivos)
+  </div>
+  <div>
+  Número de lugares de origem: ${uniqueOrigins.length} (${calculatePercentage(charactersWithOriginUnknown, totalCharacters)}% dos personagens tem origem desconhecida)
+  </div>
+  
+  `
+

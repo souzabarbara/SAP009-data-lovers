@@ -80,7 +80,7 @@ document.querySelector("#filter-by-gender").innerHTML +=
 
 const allOrigin = new Set()
 data.results.forEach(character => allOrigin.add(character.origin.name))
-const originOptions = Array.from(allOrigin)
+export const originOptions = Array.from(allOrigin)
 document.querySelector("#filter-by-origin").innerHTML +=
     originOptions.map(origin => `<option value="${origin}">${origin}</option>`).join('')
 
