@@ -26,17 +26,20 @@ body {
 
 #header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
 }
 
 #logo {
     margin-left: 15px;
+    display: flex;
+    align-items: center;
 }
 
 #h1 {
-    font-size: 48px;
+    font-size: 35px;
     color: #000000;
+    margin-left: 15px;
 }
 
 #container-right {
