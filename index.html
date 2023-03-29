@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Rick and Morty Pedia</title>
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ac359e685a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header id="header">
+    <div id="logo">
+      <a href="/"> <img src="/images/logo-header.png" alt="descrição"></a>
+      <div id="h1">Rick and Morty Pedia</div>
+    </div>
+    <div id="container-right">
+      <div class="search-box">
+        <input class="search-input" id="search-input" type="text" placeholder="Pesquisar por nome">
+        <a href="#" class="search-btn">
+          <i class="fas fa-search"></i>
+        </a>
+      </div>
+      <a href="https://www.hbomax.com/br/pt/series/urn:hbo:series:GXkRjxwjR68PDwwEAABKJ" target="_blank"><button
+          id="button-watch-serie">ASSISTA A SÉRIE</button></a>
+    </div>
+  </header>
+  <main id="main">
+    <nav class="menu-container">
+      <div class="menu">
+        <a href="/about.html" class="menu-item">sobre a série</a>
+        <ul>
+          <li class="menu-item">filtrar por:</li>
+          <li class="menu-sub-item">
+            <select id="filter-by-status">
+              <option disabled selected style="display: none;">ESTADO DE VIDA</option>
+            </select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-species">
+              <option disabled selected style="display: none;">ESPÉCIE</option>
+            </select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-gender">
+              <option disabled selected style="display: none;">GÊNERO</option>
+            </select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-origin">
+              <option disabled selected style="display: none;">ORIGEM</option>
+            </select>
+          </li>
+          <li class="menu-sub-item">
+            <select id="filter-by-location">
+              <option disabled selected style="display: none;">ONDE VIVE</option>
+            </select>
+          </li>
+        </ul>
+        <ul>
+          <li class="menu-item">ordenar por:</li>
+          <li class="menu-sub-item">
+            <select id="order-by-name">
+              <option value="a-z">A-Z</option>
+              <option value="z-a">Z-A</option>
+            </select>
+          </li>
+        </ul>
+        <a href="/curiosities.html" class="menu-item">curiosidades</a>
+        <a href="/episodes.html" class="menu-item">lista de episódios</a>
+      </div>
+      <a href="#" class="menu-icon">
+        <i class="fas fa-bars fa-lg"></i>
+      </a>
+    </nav>
+    <div id="cards"></div>
+    <div id="extras"></div>
+    <div id="modal" class="modal"></div>
+  </main>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="page-up">
+        <a href="#top"><i class="fa-sharp fa-solid fa-chevron-up"></i></a>
+      </div>
+      <div>
+        <h1>DESENVOLVIDO POR:</h1>
+        <p>Bárbara Souza | Karina Bastos</p>
+        <ul class="socials">
+          <li><a href="https://github.com/souzabarbara" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/barbarasouzasantos/"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/bastosmkarina" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <div></div>
+    </div>
+  </footer>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="main.js" type="module"></script>
+  <script src="header.js" type="module"></script>
+  <script src="nav.js" type="module"></script>
+</body>
+
+</html>

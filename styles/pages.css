@@ -1,0 +1,65 @@
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pages {
+    background-color: #44281D;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 600px;
+    width: 1500px;
+    background-color: #fff;
+}
+
+.container-title {
+    text-align: center;
+    margin-top: 20px;
+    color: #00B5CC;
+    padding-top: 5px;
+}
+
+.container-text {
+    line-height: 30px;
+    margin: 15px;
+    font-size: 20px;
+    text-align: justify;
+    text-indent: 50px;
+}
+
+.container-topics {
+    line-height: 32px;
+    margin: 15px;
+    font-size: 20px;
+    text-align: justify;
+    padding-left: 55px;
+    list-style: none;
+    overflow: auto;
+    height: 450px;
+}
+
+.container-topics > li::before {
+    content: "\2022";
+    color: #B2DF28;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    font-size: 25px;
+  }
+
+  .episode-list {
+      padding: 10px;
+  }
