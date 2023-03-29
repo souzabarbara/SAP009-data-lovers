@@ -105,7 +105,7 @@ Criamos uma interface responsiva que se adapta a diferentes tamanhos de tela, co
 ![interface](images/interface.png)
 
 ## 6. Acesso ao Projeto
-Você pode acessar o projeto clicando aqui.
+Você pode acessar o projeto clicando [aqui](https://souzabarbara.github.io/SAP009-data-lovers).
 
 ## 7. Tecnologias utilizadas
 
