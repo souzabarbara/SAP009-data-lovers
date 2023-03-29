@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const modalText = data
         .results
-        .find(character => character.id === cardCharacterId)
+        .find(character => character.id === Number(cardCharacterId))
         .episode
         .join('<br>')
 
