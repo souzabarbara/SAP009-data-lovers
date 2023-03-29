@@ -4,6 +4,12 @@
 * [1. Descrição do Projeto](#descrição-do-projeto) 
 * [2. Pesquisa de Usuários](#pesquisa-de-usuários)
 * [3. Histórias de Usuário](#histórias-de-usuário)
+**[3.1 Histórias de Usuário](#histórias-de-usuário-1)
+**[3.2 Histórias de Usuário](#histórias-de-usuário-2)
+**[3.3 Histórias de Usuário](#histórias-de-usuário-3)
+**[3.4 Histórias de Usuário](#histórias-de-usuário-4)
+**[3.5 Histórias de Usuário](#histórias-de-usuário-5)
+**[3.6 Histórias de Usuário](#histórias-de-usuário-6)
 * [4. Prototipagem](#protótipos-do-projeto)
 * * [4.1  Protótipo de Baixa Fidelidade](#protótipo-de-baixa-fidelidade)
 * * [4.2 Protótipo de Alta Fidelidade](#protótipo-de-alta-fidelidade)
@@ -15,7 +21,7 @@
 *  [6. Acesso ao Projeto](#acesso-ao-projeto) 
 * [7. Tecnologias utilizadas](#tecnologias-utilizadas) 
 * [8. Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras) 
-*  [9. Checklist de objetivos alcançados](#objetivos-alcançados)
+*  [9. Definição de Pronto](#definição-de-pronto)
 
 ***
 ## 1. Descrição do projeto 
@@ -125,7 +131,7 @@ Você pode acessar o projeto clicando [aqui](https://souzabarbara.github.io/SAP0
  - [Bárbara Souza](https://www.linkedin.com/in/barbarasouzasantos/)
  - Karina Bastos
 
-## 9. Checklist de objetivos alcançados
+## 9. Definição de Pronto
 -   [x] Usar VanillaJS.
 -   [x] Passa pelo linter (npm run pretest)
 -   [x] Passa pelos testes (npm test)
