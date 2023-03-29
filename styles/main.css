@@ -95,3 +95,10 @@
   padding-bottom: 50px;
 
 }
+
+.no-cards {
+  font-size: 30px;
+  color: #fff;
+  width: 100vw;
+  text-align: center;
+}

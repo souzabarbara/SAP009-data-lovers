@@ -84,23 +84,43 @@ export function translateLocation(character) {
 
 export function renderCards(arrayWithCharacterData) {
   document.querySelector("#cards").innerHTML = ""
-  document.querySelector("#cards").innerHTML += arrayWithCharacterData
-    .map(character => {
-      return `
-            <div class="card">
+  if (arrayWithCharacterData.length > 0) {
+    document.querySelector("#cards").innerHTML += arrayWithCharacterData
+      .map(character => {
+        return `
+        <div class="card">
             <img src="${character.image}"
             class="character-image" />
             <div class="character-name">${character.name}</div>
             <div class="character-description">
-            <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${translateGender(character)}</div>
-            <div>Origem: ${translateOrigin(character)}</div>
-            <div>Vive em: ${translateLocation(character)}</div>
-            <div class="show-episodes" data-character-id="${character.id}"> Episódios em que aparece</div>
+              <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${translateGender(character)}</div>
+              <div>Origem: ${translateOrigin(character)}</div>
+              <div>Vive em: ${translateLocation(character)}</div>
+              <div class="show-episodes" data-character-id="${character.id}"> Episódios em que aparece</div>
+              </div>
             </div>
         </div>
-        </div>
         `
-    }).join('')
+      }).join('')
+
+    const charactersAlive = data.results.filter(character => character.status === "Alive").length
+    const totalCharacters = data.results[data.results.length - 1].id
+    const charactersWithOriginUnknown = data.results.filter(character => character.origin.name === "unknown").length
+
+    document.querySelector("#extras").innerHTML = `
+      <div>
+        Número total de personagens: ${data.results[data.results.length - 1].id} (${calculatePercentage(charactersAlive, totalCharacters)}% dos personagens estão vivos)
+      </div>
+      <div>
+      Número de lugares de origem: ${uniqueOrigins.length} (${calculatePercentage(charactersWithOriginUnknown, totalCharacters)}% dos personagens tem origem desconhecida)
+      </div>`
+  } else {
+    document.querySelector("#cards").innerHTML = `
+    <div class="no-cards">
+      Nenhum personagem encontrado
+    <div>`
+    document.querySelector("#extras").innerHTML = ""
+  }
 }
 
 export function calculatePercentage(value, total) {
@@ -109,20 +129,6 @@ export function calculatePercentage(value, total) {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderCards(data.results)
-
-  const charactersAlive = data.results.filter(character => character.status === "Alive").length
-  const totalCharacters = data.results[data.results.length - 1].id
-  const charactersWithOriginUnknown = data.results.filter(character => character.origin.name === "unknown").length
-
-  document.querySelector("#extras").innerHTML = `
-  <div>
-    Número total de personagens: ${data.results[data.results.length - 1].id} (${calculatePercentage(charactersAlive, totalCharacters)}% dos personagens estão vivos)
-  </div>
-  <div>
-  Número de lugares de origem: ${uniqueOrigins.length} (${calculatePercentage(charactersWithOriginUnknown, totalCharacters)}% dos personagens tem origem desconhecida)
-  </div>
-  
-  `
 
   const modal = document.querySelector("#modal");
   const showEpisodesDivs = document.querySelectorAll(".show-episodes");
