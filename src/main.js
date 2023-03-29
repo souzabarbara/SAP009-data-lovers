@@ -1,7 +1,7 @@
 import data from './data/rickandmorty/rickandmorty.js';
 import { originOptions as uniqueOrigins } from './nav.js'
 
-function getStatusIcon(character) {
+export function getStatusIcon(character) {
   let statusIcon = "●"
 
   if (character.status === "Alive") {
@@ -15,7 +15,7 @@ function getStatusIcon(character) {
   return statusIcon
 }
 
-function translateStatus(character) {
+export function translateStatus(character) {
 
   if (character.status === 'Alive' && character.gender === "Male") { return "Vivo"; }
   else if (character.status === 'Alive' && character.gender === "Female") { return "Viva"; }
@@ -32,7 +32,7 @@ function translateStatus(character) {
   else { return "Desconhecido"; }
 }
 
-function translateSpecies(character) {
+export function translateSpecies(character) {
   const current_species = character.species.toLowerCase()
 
   const speciesTranslation = {
@@ -53,7 +53,7 @@ function translateSpecies(character) {
   return speciesTranslation[current_species]
 }
 
-function translateGender(character) {
+export function translateGender(character) {
   const current_gender = character.gender.toLowerCase()
 
   const genderTranslation = {
@@ -66,7 +66,7 @@ function translateGender(character) {
   return genderTranslation[current_gender]
 }
 
-function translateOrigin(character) {
+export function translateOrigin(character) {
   const origin = character.origin.name
   if (origin.includes('Earth')) return origin.replace('Earth', 'Terra')
   if (origin === "unknown") return "Desconhecida"
@@ -74,8 +74,7 @@ function translateOrigin(character) {
   return origin
 }
 
-function translateLocation(character) {
-
+export function translateLocation(character) {
   const location = character.location.name
   if (location.includes('Earth')) return location.replace('Earth', 'Terra')
   if (location === "unknown") return "Local desconhecido"
@@ -104,52 +103,18 @@ export function renderCards(arrayWithCharacterData) {
     }).join('')
 }
 
-renderCards(data.results)
-
-const modal = document.querySelector("#modal");
-const showEpisodesDivs = document.querySelectorAll(".show-episodes");
-
-showEpisodesDivs.forEach(el => {
-  el.addEventListener('click', (event) => {
-    modal.style.display = "block";
-
-    const cardCharacterId = event.target.getAttribute("data-character-id")
-
-    const modalText = data
-      .results
-      .find(character => character.id == cardCharacterId)
-      .episode
-      .join('<br>')
-
-    modal.innerHTML =
-      `<div class="modal-content">
-        <span id="modal-close">&times;</span>
-        <p>${modalText}</p>
-      </div>`
-
-    const closeButton = document.querySelector("#modal-close");
-
-    closeButton.addEventListener('click', () => {
-      modal.style.display = "none";
-    })
-  })
-})
-
-window.onclick = (event) => {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
-
-const charactersAlive = data.results.filter(character => character.status === "Alive").length
-const totalCharacters = data.results[data.results.length - 1].id
-const charactersWithOriginUnknown = data.results.filter(character => character.origin.name === "unknown").length
-
-function calculatePercentage(value, total) {
+export function calculatePercentage(value, total) {
   return Math.round((value / total) * 100)
 }
 
-document.querySelector("#extras").innerHTML = `
+document.addEventListener("DOMContentLoaded", () => {
+  renderCards(data.results)
+
+  const charactersAlive = data.results.filter(character => character.status === "Alive").length
+  const totalCharacters = data.results[data.results.length - 1].id
+  const charactersWithOriginUnknown = data.results.filter(character => character.origin.name === "unknown").length
+
+  document.querySelector("#extras").innerHTML = `
   <div>
     Número total de personagens: ${data.results[data.results.length - 1].id} (${calculatePercentage(charactersAlive, totalCharacters)}% dos personagens estão vivos)
   </div>
@@ -158,4 +123,43 @@ document.querySelector("#extras").innerHTML = `
   </div>
   
   `
+
+  const modal = document.querySelector("#modal");
+  const showEpisodesDivs = document.querySelectorAll(".show-episodes");
+
+  showEpisodesDivs.forEach(el => {
+    el.addEventListener('click', (event) => {
+      modal.style.display = "block";
+
+      const cardCharacterId = event.target.getAttribute("data-character-id")
+
+      const modalText = data
+        .results
+        .find(character => character.id === cardCharacterId)
+        .episode
+        .join('<br>')
+
+      modal.innerHTML =
+        `<div class="modal-content">
+        <span id="modal-close">&times;</span>
+        <p>${modalText}</p>
+      </div>`
+
+      const closeButton = document.querySelector("#modal-close");
+
+      closeButton.addEventListener('click', () => {
+        modal.style.display = "none";
+      })
+    })
+  })
+
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+})
+
+
+
 
