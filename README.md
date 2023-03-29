@@ -84,7 +84,7 @@ Primeiro, criamos o Protótipo de Baixa Fidelidade na plataforma [Miro](https://
 
 Com base na nossa pesquisa, criamos uma interface intuitiva e fácil de usar, para que o usuário possa realizar as ações desejadas de forma clara e simples, sendo visualmente agradável e bem organizada. 
 
-![responsividade](images/resposividade.png)
+![interface](images/interface.png)
 
 
 ### 5.1 Página Inicial
@@ -107,8 +107,8 @@ Na parte inferior da página inicial, incluímos informações importantes e cá
 ### 5.4 Responsividade
 Criamos uma interface responsiva que se adapta a diferentes tamanhos de tela, como smartphones, tablets e computadores em geral. 
 
+![responsividade](images/resposividade.png)
 
-![interface](images/interface.png)
 
 ## 6. Acesso ao Projeto
 Você pode acessar o projeto clicando [aqui](https://souzabarbara.github.io/SAP009-data-lovers).
