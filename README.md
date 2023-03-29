@@ -40,15 +40,23 @@ A seguir, foram-lhes enviado via WhatsApp a ideia inicial do projeto e um questi
 
 Baseado no resultado do processo de pesquisa, criamos nossas **Histórias de Usuário** no [Trello](https://www.trello.com/). Todas elas foram executadas no projeto. 
 
+### 3.1 História de Usuário 1
+
+
 ![user-story-1](images/userstory1.png)
+### 3.2 História de Usuário 2
 
 ![user-story-2](images/userstory2.png)
+### 3.3 História de Usuário 3
 
 ![user-story-3](images/userstory3.png)
+### 3.4 História de Usuário 4
 
 ![user-story-4](images/userstory4.png)
+### 3.5 História de Usuário 5
 
 ![user-story-5](images/userstory5.png)
+### 3.6  História de Usuário 6
 
 ![user-story-6](images/userstory6.png)
 ***
