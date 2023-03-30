@@ -84,25 +84,28 @@ Primeiro, criamos o Protótipo de Baixa Fidelidade na plataforma [Miro](https://
 
 Com base na nossa pesquisa, criamos uma interface intuitiva e fácil de usar, para que o usuário possa realizar as ações desejadas de forma clara e simples, sendo visualmente agradável e bem organizada. 
 
-![interface](images/interface.png)
+![interface](images/pagina-inical.png)
 
 
 ### 5.1 Página Inicial
 Na página inicial, inserimos uma barra de pesquisa onde o usuário pode pesquisar os personagens da série pelo seu nome, um botão que direciona o usuário ao site de Streaming que exibe a série, cards com imagem e informações mais relevantes e um menu onde o usuário pode interagir de forma eficaz, filtrando dados como "Estado de Vida", "Gênero", "Espécie", "Origem" e "Onde vive" ordenando de "A-Z" ou "Z-A" e tendo acesso às informações sobre o tema.
 
-![pagina-inicial](images/interface2.png)
+![pagina-inicial](images/pagina-inical-menu.png)
 ### 5.2 Páginas Extras
 Adicionamos opções no menu onde o usuário pode ter acesso às páginas extras que contêm mais informações, como "Sobre a série" em que usuário pode ler um breve resumo sobre a mesma e motivando-o a assisti-la, "Lista de episódios" onde se encontram todos os episódios da série com seus respectivos títulos, dividido por temporadas com seus anos de lançamentos e por fim, a página  "Curiosidades", onde o usuário tem acesso às curiosidades sobre a série.
 
+- Sobre a série
 ![sobre-a-serie](images/about.png)
 
+- Curiosidades
 ![curiosidades](images/curiosities.png)
 
+-Lista de Episódios
 ![episodios](images/episodes.png)
 ### 5.3 Cálculo Agregado
 Na parte inferior da página inicial, incluímos informações importantes e cálculos agregados de porcentagem, que calculam o percentual da quantidade de Personagens Vivos e Personagens de Origem Desconhecida em relação ao Número total de personagens e o Número total de lugares de origem. 
 
-![calculo-agregado](images/calculo.png)
+![calculo-agregado](images/calculo-agregado.png)
 
 ### 5.4 Responsividade
 Criamos uma interface responsiva que se adapta a diferentes tamanhos de tela, como smartphones, tablets e computadores em geral. 
