@@ -84,13 +84,13 @@ Primeiro, criamos o Protótipo de Baixa Fidelidade na plataforma [Miro](https://
 
 Com base na nossa pesquisa, criamos uma interface intuitiva e fácil de usar, para que o usuário possa realizar as ações desejadas de forma clara e simples, sendo visualmente agradável e bem organizada. 
 
-![interface](images/página-inical.png)
+![interface](images/pagina-inicial.png)
 
 
 ### 5.1 Página Inicial
 Na página inicial, inserimos uma barra de pesquisa onde o usuário pode pesquisar os personagens da série pelo seu nome, um botão que direciona o usuário ao site de Streaming que exibe a série, cards com imagem e informações mais relevantes e um menu onde o usuário pode interagir de forma eficaz, filtrando dados como "Estado de Vida", "Gênero", "Espécie", "Origem" e "Onde vive" ordenando de "A-Z" ou "Z-A" e tendo acesso às informações sobre o tema.
 
-![pagina-inicial](images/pagina-inical-menu.png)
+![pagina-inicial](images/pagina-inicial-menu.png)
 ### 5.2 Páginas Extras
 Adicionamos opções no menu onde o usuário pode ter acesso às páginas extras que contêm mais informações, como "Sobre a série" em que usuário pode ler um breve resumo sobre a mesma e motivando-o a assisti-la, "Lista de episódios" onde se encontram todos os episódios da série com seus respectivos títulos, dividido por temporadas com seus anos de lançamentos e por fim, a página  "Curiosidades", onde o usuário tem acesso às curiosidades sobre a série.
 
