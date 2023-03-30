@@ -84,7 +84,7 @@ Primeiro, criamos o Protótipo de Baixa Fidelidade na plataforma [Miro](https://
 
 Com base na nossa pesquisa, criamos uma interface intuitiva e fácil de usar, para que o usuário possa realizar as ações desejadas de forma clara e simples, sendo visualmente agradável e bem organizada. 
 
-![interface](images/pagina-inical.png)
+![interface](images/página-inical.png)
 
 
 ### 5.1 Página Inicial
@@ -100,12 +100,12 @@ Adicionamos opções no menu onde o usuário pode ter acesso às páginas extras
 - Curiosidades
 ![curiosidades](images/curiosities.png)
 
--Lista de Episódios
+- Lista de Episódios
 ![episodios](images/episodes.png)
 ### 5.3 Cálculo Agregado
 Na parte inferior da página inicial, incluímos informações importantes e cálculos agregados de porcentagem, que calculam o percentual da quantidade de Personagens Vivos e Personagens de Origem Desconhecida em relação ao Número total de personagens e o Número total de lugares de origem. 
 
-![calculo-agregado](images/calculo-agregado.png)
+![calculo-agregado](images/cálculo-agregado.png)
 
 ### 5.4 Responsividade
 Criamos uma interface responsiva que se adapta a diferentes tamanhos de tela, como smartphones, tablets e computadores em geral. 
